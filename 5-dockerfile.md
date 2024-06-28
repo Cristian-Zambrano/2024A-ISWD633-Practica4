@@ -51,13 +51,14 @@ La opción -t se utiliza para etiquetar la imagen que se está construyendo con 
  
 ### Ejecutar el archivo Dockerfile y construir una imagen en la versión 1.0
 ```
-
+docker build -t ejemplo:1.0 .
 ```
+![image](https://github.com/Cristian-Zambrano/2024A-ISWD633-Practica4/assets/94475992/1316c2ba-498a-4305-9ee3-bd326ece72a4)
 
 **¿Cuántos pasos se han ejecutado?**
-
+Se ejecutaron 9 de 9 pasos en la construccion. Ademas, se ejecutaron los comandos escritos en el Dockerfile.
 ### Inspeccionar la imagen creada
-# COMPLETAR CON UNA CAPTURA
+![image](https://github.com/Cristian-Zambrano/2024A-ISWD633-Practica4/assets/94475992/02e544ae-71d8-498e-acc1-ffa747ef80d1)
 
 **Modificar el archivo index.html para incluir su nombre**
 **¿Cuántos pasos se han ejecutado? ¿Observa algo diferente en la creación de la imagen**
@@ -72,28 +73,27 @@ Docker usa un mecanismo de caché cuando crea imágenes para acelerar el proceso
 
 ### Crear un contenedor a partir de las imagen creada, mapear todos los puertos
 ```
-
+docker run -P myapp:1.0
 ```
 
 ### ¿Con que puerto host se está realizando el mapeo?
-# COMPLETAR CON LA RESPUESTA
+Con el puerto 32768.
 
 **¿Qué es una imagen huérfana?**
-# COMPLETAR CON LA RESPUESTA
-
+En el contexto de Docker se refiere a una imagen que no está asociada con ningún contenedor en ejecución. En otras palabras, es una imagen que no tiene instancias activas en forma de contenedores.
 ### Identificar imágenes huérfanas
 ```
-
+docker images --filter "dangling=true"
 ```
 
 ### Listar los IDS de las imágenes huérfanas
 ```
-
+docker images --filter "dangling=true" -q
 ```
 
 ### Eliminar imágenes huérfanas
 ```
-
+docker rmi <ID_de_la_imagen>
 ```
 
 ### Ejecutar un archivo Dockerfile que tiene otro nombre
